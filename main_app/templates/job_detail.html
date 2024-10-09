@@ -13,20 +13,17 @@
     <h5>Location</h5>
     <p>{{ listing.location }}</p>
 
-    <!-- Number of people registered -->
     <h5>Registered Workers</h5>
     <p>{{ listing.jobregistration_set.count }} people have registered for this job.</p>
 
-    <!-- 24-hour countdown timer -->
+
     <div class="card-panel teal-text center-align">
         <h5>Time Left to Register</h5>
         <div id="countdown-timer">Loading...</div>
     </div>
 
-    <!-- Register for Job button -->
     <a href="{% url 'register_for_job' listing.id %}" class="btn">Register for Job</a>
 
-    <!-- Get Directions button -->
     <button class="btn" onclick="getDirections()">Get Directions</button>
 </div>
 

@@ -25,7 +25,6 @@ def job_detail(request, listing_id):
 def register_for_job(request, listing_id):
     listing = get_object_or_404(JobListing, id=listing_id)
     if request.method == 'POST':
-        # Assuming staff details are passed in the form (no login system yet)
         staff_id = request.POST['staff_id']
         staff = get_object_or_404(StaffRegister, id=staff_id)
         JobRegistration.objects.create(listing=listing, staff=staff)
@@ -40,7 +39,7 @@ def create_job_listing(request):
         requirements = request.POST['requirements']
         trade_category = request.POST['trade_category']
         location = request.POST['location']
-        listing_id = request.POST['listing_id']  # You can auto-generate this as needed
+        listing_id = request.POST['listing_id']  
         JobListing.objects.create(
             title=title,
             description=description,
@@ -58,7 +57,7 @@ def employer_register(request):
         form = EmployerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('employer_login')  # Redirect to login or success page
+            return redirect('employer_login')  
     else:
         form = EmployerForm()
     return render(request, 'registration/employer_register.html', {'form': form})
@@ -69,7 +68,7 @@ def staff_register(request):
         form = StaffRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('staff_login')  # Redirect to login or success page
+            return redirect('job_listings')  
     else:
         form = StaffRegisterForm()
     return render(request, 'registration/staff_register.html', {'form': form})
