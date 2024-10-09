@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Register for {{ listing.title }}</h1>
+
+<div class="section">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-field">
+            <input type="text" name="staff_id" id="staff_id" required>
+            <label for="staff_id">Staff ID</label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+{% endblock %}

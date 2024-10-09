@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ listing.title }}</h1>
+
+<div class="section">
+    <h5>Description</h5>
+    <p>{{ listing.description }}</p>
+
+    <h5>Requirements</h5>
+    <p>{{ listing.requirements }}</p>
+
+    <h5>Location</h5>
+    <p>{{ listing.location }}</p>
+
+    <!-- Number of people registered -->
+    <h5>Registered Workers</h5>
+    <p>{{ listing.jobregistration_set.count }} people have registered for this job.</p>
+
+    <!-- 24-hour countdown timer -->
+    <div class="card-panel teal-text center-align">
+        <h5>Time Left to Register</h5>
+        <div id="countdown-timer">Loading...</div>
+    </div>
+
+    <!-- Register for Job button -->
+    <a href="{% url 'register_for_job' listing.id %}" class="btn">Register for Job</a>
+
+    <!-- Get Directions button -->
+    <button class="btn" onclick="getDirections()">Get Directions</button>
+</div>
+
+{% endblock %}
+
+//Registration count dpwn timer
+<script>
+    const countdownDuration = 24 * 60 * 60 * 1000; 
+    const countdownDate = new Date().getTime() + countdownDuration;
+
+    let countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown-timer").innerHTML = 
+            hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown-timer").innerHTML = "Registration Closed";
+        }
+    }, 1000);
+
+
+    function getDirections() {
+        const location = "{{ listing.location }}";
+        window.open(`https://www.google.com/maps?q=${encodeURIComponent(location)}`);
+    }
+</script>

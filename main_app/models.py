@@ -26,7 +26,6 @@ class StaffRegister(models.Model):
 class JobListing(models.Model):
     title = models.CharField(max_length=255)
     listing_id = models.CharField(max_length=20, unique=True)
-    business_id = models.ForeignKey(Employer, on_delete=models.CASCADE)
     description = models.TextField()
     requirements = models.TextField()
     trade_category = models.CharField(max_length=100)

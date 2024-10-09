@@ -1,13 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Site</title>
-</head>
-<body>
-    {% extends 'base.html' %} {% block content %}
-        <h1>Work Site home page</h1>
-    {% endblock %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home | Worksite{% endblock %}
+
+{% block content %}
+  <header style="background-image: url('https://example.com/featured-image.jpg'); background-size: cover; background-position: center; height: 90vh;">
+    <div class="overlay" style="background: rgba(0, 0, 0, 0.6); height: 100%; display: flex; align-items: center; justify-content: center;">
+      <h1 style="color: white; font-size: 4rem; text-align: center;">Find Skilled Workers & Job Listings</h1>
+    </div>
+  </header>
+
+  <!-- Welcome Section -->
+  <section class="section center">
+    <h2>Welcome to Worksite</h2>
+    <p>Worksite helps connect skilled workers with employers for day jobs and contract work. Browse available job listings, create your profile, and apply today!</p>
+  </section>
+
+  <!-- Featured Photos Section -->
+  <section class="container">
+    <div class="row">
+      <div class="col s12 m6">
+        <img src="" alt="Job Listing" class="responsive-img">
+        <h5>Post a Job</h5>
+        <p>Employers can upload job listings and find skilled workers fast.</p>
+      </div>
+      <div class="col s12 m6">
+        <img src="" alt="Skilled Worker" class="responsive-img">
+        <h5>Find Jobs</h5>
+        <p>Workers can browse job listings based on their trade and apply instantly.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

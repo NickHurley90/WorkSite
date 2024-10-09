@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Work Site</title>
-  </head>
-  <body>
-    {% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-container">
     <h1>About Work Site</h1>
-    <hr/>
-    <p>Get Hired Today</p>
-    {% endblock %}
-    <footer>All Rights Reserved, &copy; 2024 Work Site</footer>
-</body>
-</html>
+    <hr />
+    <p>Welcome to Work Site! We are dedicated to connecting skilled trade workers with employers looking to hire. Our platform allows employers to post job listings easily and helps workers find job opportunities that match their skills.</p>
+    
+    <p>At Work Site, we believe in empowering workers by providing them access to job opportunities tailored to their expertise. Join us today and get hired!</p>
+    
+    <h2>Our Mission</h2>
+    <p>To bridge the gap between skilled workers and employers through a user-friendly platform, making the hiring process efficient and effective for everyone.</p>
+    
+    <h2>Our Vision</h2>
+    <p>To become the leading online platform for job listings in the trades, recognized for our commitment to quality service and community support.</p>
+    
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, feel free to reach out to us at <a href="mailto:info@worksite.com">info@worksite.com</a>.</p>
+
+    <div class="about-image">
+        <img src="" alt="Work Site Team" />
+    </div>
+</div>
+{% endblock %}
+
+<footer class="page-footer">
+    <div class="right">
+        All Rights Reserved, &copy; 2024 Work Site &nbsp;
+    </div>
+</footer>
